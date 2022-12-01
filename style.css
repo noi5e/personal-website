@@ -1,0 +1,269 @@
+/* custom CSS variables */
+:root {
+  --main-beige: #ecd0ca;
+  --main-brown: #754819;
+  --main-dark-blue: #26496d;
+  --main-dark-green: #2a6a45;
+  --main-dark-red: #821f48;
+  --main-green: #54af79;
+  --main-light-grey: #9b9b9b;
+  --main-lilac: #d6bcf5;
+  --main-magenta: #fa217f;
+  --main-orange: #ff9419;
+  --main-peach: #f4b8ab;
+  --main-sub-white: #dfdfdf;
+  --main-white: #fff;
+  /* nice green: #54af79 */
+  /* ["#fe9317", "#754819", "#ebaa8c", "#bb190a", "#fa217f"] */
+  /* ["#fe9317", "#673d17", "#f4b8ab", "#ea1349", "#d0616c", "#821f48", "#9d7b84", "#26496d", "#58a2ee", "#1255d3"] */
+  /* ["#fe9317", "#683c00", "#54af79", "#2a6a45", "#39f27a", "#21638f", "#6ec1f8", "#710c9e", "#d6bcf5", "#b76dfc"] */
+}
+
+@font-face {
+  font-family: "Bluu Next";
+  src: url('fonts/bluu-next-bold.otf');
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url('fonts/manrope-light.otf');
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url('fonts/manrope-semibold.otf');
+  font-weight: bold;
+}
+
+/* universal reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* box-sizing and font sizing */
+/* more info here: https://css-tricks.com/box-sizing/ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  /* set font size for easy rem calculations
+   * default document font size = 16px, 1rem = 16px, 100% = 16px
+   * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+  */
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+/* media queries to set font sizes */
+/* must use rem unit for size values, margin, and padding */
+/* rem is relative to the document's font size */
+/* therefore, if we scale up or down on the font size, it will affect all properties using rem units */
+
+/* rem vs. em:  */
+/* rem is relative to document font size */
+/* em is relative to its neighbor/parent's font size */
+
+/* em units are used for breakpoints */
+/* calculation is: */
+/* screen size divided by browser base font size */
+/* eg. a breakpoint at 980px is: */
+/* 980px / 16px = 61.25em */
+
+/* 1200px / 16px = 75em */
+@media (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+}
+
+/* 980px / 16px = 61.25em */
+@media (max-width: 61.25em) {
+  html {
+    font-size: 58%;
+  }
+}
+
+/* 460px / 16px = 28.75em */
+@media (max-width: 28.75em) {
+  html {
+    font-size: 55%;
+  }
+}
+
+/* base styles */
+body {
+  font-family: 'Manrope', Arial, Helvetica, sans-serif;
+  font-size: 1.8rem; /* 18px */
+}
+
+h1, h2 {
+  font-family: "Bluu Next", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+h2 {
+  font-size: 4.2rem;
+}
+
+/* header */
+#header-name {
+  color: var(--main-white);
+}
+
+#name-header-tagline {
+  color: var(--main-sub-white);
+  font-weight: bold;
+  font-size: 2.2rem;
+  line-height: .1rem;
+}
+
+header {
+  align-items: center;
+  background-color: var(--main-orange);
+  background-image:
+    linear-gradient(to bottom, rgb(254, 147, 23, 0.5), rgb(250, 33, 127, 0.5)),
+    url('images/brugmansia_flowers.jpg');
+  display: flex;
+  flex-direction: column;
+  height: 75vh;
+  justify-content: center;
+  width: 100%;
+}
+
+#navbar-container {
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+#navbar-left {
+  align-items: center;
+  display: flex;
+  padding-left: 2rem;
+  width: 50%;
+}
+
+#navbar-title {
+  color: var(--main-white);
+  display: none;
+  font-family: "Bluu Next", Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 4.5rem;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; */
+}
+
+nav a {
+  color: var(--main-white);
+}
+
+nav > ul {
+  display: flex;
+  list-style: none;
+  margin-right: 2rem;
+}
+
+nav li {
+  padding: 2rem;
+}
+
+/* about */
+h2#header-about {
+  color: var(--main-beige);
+}
+
+img#headshot {
+  /* float: right; */
+  filter: opacity(0.8) drop-shadow(0 0 0 var(--main-magenta));
+  padding: 10px;
+}
+
+section#about {
+  padding: 10rem 10rem;
+  background: var(--main-magenta);
+}
+
+section#about, section#about a {
+  color: var(--main-dark-red);
+}
+
+section#about p {
+  margin: 0 0 1.5rem 0;
+}
+
+#headshot-container {
+  float: right;
+}
+
+/* 600px / 16px = 37.5em */
+@media (max-width: 37.5em) {
+  h2#header-about {
+    text-align: center;
+  }
+
+  #headshot-container {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+/* projects */
+h2#header-projects {
+  color: var(--main-dark-blue);
+}
+
+section#projects {
+  background: var(--main-beige);
+  text-align: center;
+  padding: 10rem 2rem;
+}
+
+/* me & programming */
+h2#header-programming {
+  color: var(--main-green);
+}
+
+section#programming {
+  background: var(--main-dark-green);
+  padding: 10rem 10rem;
+}
+
+/* footer */
+h2#header-contact-me {
+  color: var(--main-lilac);
+}
+
+footer {
+  align-items: center;
+  background: var(--main-brown);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 35vh;
+}
